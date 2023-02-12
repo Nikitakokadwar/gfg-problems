@@ -1,0 +1,31 @@
+class Solution{
+  public:
+  
+    //Function to find starting point where the truck can start to get through
+    //the complete circle without exhausting its petrol in between.
+    int tour(petrolPump p[],int n)
+    {
+      int start=0;
+      int balance =0;
+      int deficit=0;
+      //loop for traversing the whole
+      for(int i=0;i<n;i++){
+          //find the balance by subtracting the distance from the petrol
+          balance+=p[i].petrol-p[i].distance;
+          //if the balance is greater than 0 then we can traverse if not then deficit=balance
+          if(balance<0){
+              deficit+=balance;
+              //move the start by i+1
+              start=i+1;
+              //new balance so make start =0
+             balance=0;
+          }
+      }
+      if(deficit+balance>0)
+         return start;
+      else{
+         return -1;
+      }
+        
+    }
+};
