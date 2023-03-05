@@ -1,0 +1,44 @@
+class Solution
+{
+    public:
+    //Function to check if brackets are balanced or not.
+    bool ispar(string x)
+    {
+        // Your code here
+        //create 1 stack with charater data type to store the parenthesis
+        stack<char>s;
+        //1 for loop for traversing the array
+        for(int i=0;i<x.length();i++){
+            //create 1 character to store the length of i
+            char ch=x[i];
+            if(ch=='(' || ch=='{'|| ch=='[' ){
+                //push the parenthesis inside the stack
+                s.push(ch);
+            }
+            else{
+                //for closing bracket
+                if(!s.empty()){
+                    char top=s.top();
+                    if((ch==')' &&  top=='(')||
+                    (ch=='}'&&  top=='{')||
+                    (ch==']' && top=='[')){
+                        s.pop();
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        if(s.empty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+};
