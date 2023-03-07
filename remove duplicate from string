@@ -1,0 +1,16 @@
+class Solution{
+public:	
+		
+	string removeDups(string S) 
+	{
+	   unordered_map<char,int>map;
+	   string str="";//here we create the new string empty
+	   for(int i=0;i<S.size();i++){
+	       map[S[i]]++; //increase the count of character ini map
+	       if(map[S[i]]<=1)  // count of the charcter in map is less than or equal to 1 then
+	       str.push_back(S[i]);//we push the string element inside the map and new string
+	   }
+	   return str;
+	}
+
+};
