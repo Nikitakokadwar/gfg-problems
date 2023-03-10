@@ -1,0 +1,23 @@
+//User function template for C++
+class Solution{
+public:	
+	// Function returns the second
+	// largest elements
+	int print2largest(int arr[], int n) {
+	    // code here
+	     int i;
+	    int sum=INT_MIN;
+	    int count=INT_MIN;
+	   
+	    for(i=0;i<n;i++){
+	        if(arr[i]>count){
+	            sum=count;
+	            count=arr[i];
+	        }else if(arr[i]>sum && arr[i]!=count){
+	            sum=arr[i];
+	        }
+	        
+	    }
+	    return sum==INT_MIN ? -1: sum;
+	}
+};
