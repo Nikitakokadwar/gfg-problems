@@ -1,0 +1,25 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+class Solution{
+    public:
+    
+    //Function to rotate an array by d elements in counter-clockwise direction. 
+    void swaparr(int arr[],int s,int e){
+        while(s<e){
+            swap(arr[s++],arr[e--]);
+        }
+    }
+    void rotateArr(int arr[], int d, int n){
+        // code here
+        // for loop for traversing hole array
+        //create 1 temp array to store 
+       d=d%n;
+       swaparr(arr,0,d-1);
+       swaparr(arr,d,n-1);
+       swaparr(arr,0,n-1);
+        
+    }
