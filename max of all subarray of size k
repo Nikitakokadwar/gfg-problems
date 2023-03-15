@@ -1,0 +1,28 @@
+class Solution
+{
+  public:
+    //Function to find maximum of each subarray of size k.
+    vector <int> max_of_subarrays(int *arr, int n, int k)
+    {
+       int start=0;
+       int end=0;
+       vector<int>ans;
+       multiset<pair<int,int>>s;
+       while(end<n){
+           s.insert({arr[end],end});
+           if((end-start+1)<k)
+           end++;
+           else if((end-start+1)==k){
+               auto it=*(s.rbegin());
+               ans.push_back(it.first);
+               s.erase(s.find({arr[start],start}));
+               start++;
+               end++;
+           }
+          
+       }
+         return ans;
+       
+      
+    }
+};
